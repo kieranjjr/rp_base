@@ -7,20 +7,20 @@ CMD:changepassword(playerid, params[]) {
 Dialog:DIALOG_PASSWORDCHANGE(playerid, response, listitem, inputtext[]) {
 	if(response) {
 		bcrypt_hash(playerid, "OnPasswordChanged", inputtext, 12);
-	}
+	} else SendClientMessage(playerid, -1, "SERVER:- You cancelled.");
 	return 1;
 }
 
 forward OnPasswordChanged(playerid);
 public OnPasswordChanged(playerid) {
 
-	new hash[61], query[156];
+	new hash[BCRYPT_HASH_LENGTH], query[156];
 
 	bcrypt_get_hash(hash);
 
 	mysql_format(SQL_Handle, query, sizeof(query), "UPDATE `master` SET `Password` = '%e' WHERE `Username` = '%e'", hash, GetName(playerid));
-	mysql_query(SQL_Handle, query);
+	mysql_tquery(SQL_Handle, query);
 
-	SendClientMessage(playerid, -1, "You have successfully changed your password.");
+	SendClientMessage(playerid, -1, "SERVER:- You have successfully changed your password.");
 	return 1;
 }

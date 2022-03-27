@@ -1,6 +1,7 @@
 enum E_MASTER_INFO {
 	mUID,
 	mChars,
+    mName[MAX_PLAYER_NAME],
 	bool:mLogged,
 	mAdmin,
 	mVIP
@@ -9,9 +10,7 @@ enum E_MASTER_INFO {
 new MasterInfo[MAX_PLAYERS][E_MASTER_INFO];
 
 enum E_CHARACTER_INFO {
-    cIDOne,
-    cIDTwo,
-    cIDThree,
+    cID[3],
     cLoggedID,
     bool:cSpawned,
     bool:cFirstSpawn,

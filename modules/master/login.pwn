@@ -1,6 +1,6 @@
 Dialog:DIALOG_LOGIN(playerid, response, listitem, inputtext[]) {
 	if(response) {
-		new query[81], hash[61];
+		new query[81], hash[BCRYPT_HASH_LENGTH];
 
 		mysql_format(SQL_Handle, query, sizeof(query), "SELECT `Password` FROM `master` WHERE `Username` = '%e'", GetName(playerid));
 		mysql_query(SQL_Handle, query);
@@ -19,9 +19,8 @@ public LoadMasterAccount(playerid, bool:success) {
 
 		mysql_format(SQL_Handle, query, sizeof(query), "SELECT * FROM `master` WHERE `Username` = '%e'", GetName(playerid));
 		mysql_tquery(SQL_Handle, query, "OnMasterLoad", "d", playerid); // save_load
-	} else {
+	} else
 		Dialog_Show(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "Login to our server", "Wrong Password!\nPlease type your correct password below.", "Login", "Quit");
-	}
 	return 1;
 }
 

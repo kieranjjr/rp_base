@@ -22,9 +22,7 @@ new
 	MySQL: SQL_Handle
 ;
 
-main() {
-	print("Shadow_'s base RP mode");
-}
+main() { }
 
 public OnGameModeInit() {
 	
@@ -39,6 +37,8 @@ public OnGameModeInit() {
 		return 1;
     }
 	print("SERVER: MySQL Connection was successful.");
+	
+	ClearConsole();
 	return 1;
 }
 

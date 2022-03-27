@@ -7,15 +7,6 @@ Dialog:DIALOG_REGISTER(playerid, response, listitem, inputtext[]) {
 	return 1;
 }
 
-forward OnMasterCreated(playerid);
-public OnMasterCreated(playerid) {
-	//SpawnPlayer(playerid);
-	SendClientMessage(playerid, -1, "You have been successfully registered in our server.");
-	OnMasterLoad(playerid);
-	print("spawnplayer");
-	return 1;	
-}
-
 forward CreateMaster(playerid);
 public CreateMaster(playerid) {
 
@@ -27,4 +18,11 @@ public CreateMaster(playerid) {
 	mysql_tquery(SQL_Handle, query, "OnMasterCreated", "d", playerid);
 	print("master created");
 	return 1;
+}
+
+forward OnMasterCreated(playerid);
+public OnMasterCreated(playerid) {
+	SendClientMessage(playerid, -1, "SERVER:- You have sucessfully registered.");
+	OnMasterLoad(playerid);
+	return 1;	
 }

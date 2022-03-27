@@ -1,17 +1,15 @@
-
-//Variables
-
 new PlayerText:characterone,
 	PlayerText:charactertwo,
 	PlayerText:characterthree,
 	PlayerText:charnameone,
 	PlayerText:charnametwo,
 	PlayerText:charnamethree,
-	PlayerText:stringtitle
+	PlayerText:stringtitle,
+	Text:toptitlebar,
+	Text:bottomtitlebar,
+	Text:selecttitle,
+	bool:CharDrawsCreated[MAX_PLAYERS]
 ; 
-
-new Text:toptitlebar, Text:bottomtitlebar, Text:selecttitle;
-new bool:CharDrawsCreated[MAX_PLAYERS];
 
 CreateMainTextDraws() {
 	toptitlebar = TextDrawCreate(132.000000, 106.000000, "TextDraw");
@@ -176,10 +174,8 @@ CreateCharacterDraws(playerid) {
 	PlayerTextDrawUseBox(playerid, charnamethree, 0);
 	PlayerTextDrawSetProportional(playerid, charnamethree, 1);
 
-
-	printf("ID %d | %s - character draws created.", playerid, GetName(playerid));
-
 	CharDrawsCreated[playerid] = true;
+	printf("ID %d | %s - character draws created.", playerid, GetName(playerid));
 	return 1;
 }
 

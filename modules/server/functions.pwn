@@ -133,11 +133,3 @@ stock RandomNumberPlateString()
 	}
 	return str;
 }
-
-/*
-IsValidDOB(const dob[]) {
-	static Regex:regex;
-	if (!regex) regex = Regex_New("^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$");
-
-	return Regex_Check(dob, regex);
-}*/

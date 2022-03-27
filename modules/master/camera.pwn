@@ -3,7 +3,6 @@ public mCamera(playerid) {
 	TogglePlayerSpectating(playerid, 1);
 	SetPlayerInterior(playerid, 0);
 	SetPlayerVirtualWorld(playerid, 1);
-	ClearChat(playerid, 20);
 	mCameraOne(playerid);
 	return 1;
 }

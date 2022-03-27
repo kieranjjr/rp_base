@@ -7,41 +7,33 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid) {
 	
 	new query[128];
 	if(playertextid == characterone) {
-		print("-d1");
-		if(CharacterInfo[playerid][cIDOne] > 0) {
-			print("-d2");
-			CharacterInfo[playerid][cLoggedID] = CharacterInfo[playerid][cIDOne];
-			mysql_format(SQL_Handle, query, sizeof(query), "SELECT * FROM characters WHERE charID = '%d' LIMIT 1", CharacterInfo[playerid][cIDOne]);
+		if(CharacterInfo[playerid][cID][0] > 0) {
+			CharacterInfo[playerid][cLoggedID] = CharacterInfo[playerid][cID][0];
+			mysql_format(SQL_Handle, query, sizeof(query), "SELECT * FROM characters WHERE charID = '%d' LIMIT 1", CharacterInfo[playerid][cID][0]);
     		mysql_tquery(SQL_Handle, query, "LoadCharacterStats", "d", playerid);
-    		printf("%d playerid | %d char id", playerid, CharacterInfo[playerid][cIDOne]);
+    		printf("%d playerid | %d char id", playerid, CharacterInfo[playerid][cID][0]);
     	} else return CreateCharacter(playerid);
 	} else if(playertextid == charactertwo) {
-		print("-d3");
-		if(CharacterInfo[playerid][cIDTwo] > 0) {
-			print("-d4");
-			CharacterInfo[playerid][cLoggedID] = CharacterInfo[playerid][cIDTwo];
-			mysql_format(SQL_Handle, query, sizeof(query), "SELECT * FROM characters WHERE charID = '%d' LIMIT 1", CharacterInfo[playerid][cIDTwo]);
+		if(CharacterInfo[playerid][cID][1] > 0) {
+
+			CharacterInfo[playerid][cLoggedID] = CharacterInfo[playerid][cID][1];
+			mysql_format(SQL_Handle, query, sizeof(query), "SELECT * FROM characters WHERE charID = '%d' LIMIT 1", CharacterInfo[playerid][cID][1]);
     		mysql_tquery(SQL_Handle, query, "LoadCharacterStats", "d", playerid);
 		} else return CreateCharacter(playerid);
 	} else if(playertextid == characterthree) {
-		print("-d5");
-		if(CharacterInfo[playerid][cIDThree] > 0) {
-			print("-d6");
-			CharacterInfo[playerid][cLoggedID] = CharacterInfo[playerid][cIDThree];
-			mysql_format(SQL_Handle, query, sizeof(query), "SELECT * FROM characters WHERE charID = '%d' LIMIT 1", CharacterInfo[playerid][cIDThree]);
+		if(CharacterInfo[playerid][cID][2] > 0) {
+			CharacterInfo[playerid][cLoggedID] = CharacterInfo[playerid][cID][2];
+			mysql_format(SQL_Handle, query, sizeof(query), "SELECT * FROM characters WHERE charID = '%d' LIMIT 1", CharacterInfo[playerid][cID][2]);
     		mysql_tquery(SQL_Handle, query, "LoadCharacterStats", "d", playerid);
 		} else return CreateCharacter(playerid);
 	} else {
-		print("-d7");
 		SendClientMessage(playerid, -1, "who fucking knows");
 	}
-	print("-d8");
 	return 1;
 }
 
 forward LoadCharacterStats(playerid);
 public LoadCharacterStats(playerid) {
-	print("-d9");
 	if(MasterInfo[playerid][mLogged]) {
 
 		CharacterInfo[playerid][cLogged] = true;
@@ -70,7 +62,7 @@ public LoadCharacterStats(playerid) {
 }
 
 CreateCharacter(playerid) {
-	if(CharacterInfo[playerid][cIDThree] > 0) {
+	if(CharacterInfo[playerid][cID][1] > 0) {
 		ShowCharacterDraws(playerid);
 		SendClientMessage(playerid, -1, "SERVER:- You've already created three characters.");
 	} else {
@@ -123,7 +115,7 @@ CMD:gendertest(playerid, params[]) {
 }
 
 CMD:gmx(playerid, params[]) {
-	SetPlayerName(playerid, "kiearnjjr");
+	SetPlayerName(playerid, "kieranjjr");
 	SendRconCommand("gmx");
 	return 1;
 }
@@ -188,6 +180,7 @@ SpawnCharacter(playerid) {
 		SetPlayerInterior(playerid, 0);
 		SetPlayerVirtualWorld(playerid, 0);
 		TogglePlayerSpectating(playerid, 0);
+		SendClientMessageEx(playerid, -1, "3Master Name %s", MasterInfo[playerid][mName]);
 	}
 	return 1;
 }
@@ -224,11 +217,14 @@ public OnPlayerSpawn(playerid) {
 		CreateCharacterDraws(playerid); // character/textdraws.pwn
 		LoadCharacters(playerid);
 	} else if(MasterInfo[playerid][mLogged] == true && CharacterInfo[playerid][cLogged] == true) {
-		return SendClientMessage(playerid, -1, "SERVER:- You have sucessfully spawned.");
+		SendClientMessage(playerid, -1, "SERVER:- You have sucessfully spawned.");
+		SendClientMessageEx(playerid, -1, "2Master Name %s", MasterInfo[playerid][mName]);
 	} else {
 		SendClientMessage(playerid, -1, "SERVER:- SPAWN- Something went wrong, please contact an administrator");
 		SetTimerEx("KickTimer", 1000, false, "d", playerid);
 	}
+
+	SendClientMessageEx(playerid, -1, "1Master Name %s", MasterInfo[playerid][mName]);
 	return 1;
 }
 
