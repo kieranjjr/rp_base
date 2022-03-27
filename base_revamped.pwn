@@ -17,7 +17,6 @@
 #include "\modules\character\textdraws.pwn"
 
 
-
 new
 	MySQL: SQL_Handle
 ;
@@ -37,7 +36,7 @@ public OnGameModeInit() {
 		return 1;
     }
 	print("SERVER: MySQL Connection was successful.");
-	
+
 	ClearConsole();
 	return 1;
 }
