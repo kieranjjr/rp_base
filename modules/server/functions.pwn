@@ -102,9 +102,9 @@ SendClientMessageEx(playerid, color, const text[], {Float,_}:...)
 	return 1;
 }
 
-ClearChat(playerid, lines)
+stock ClearChat(playerid, lines)
 {
-	if (lines > 20 || lines < 1)
+	if (lines > 50 || lines < 1)
 		return 0;
 		
 	for (new i = 0; i < lines; i++)
@@ -114,21 +114,24 @@ ClearChat(playerid, lines)
 	return 1;
 }
 
+stock ClearConsole(lines = 25) // Ty Dobby
+{
+	for(new i = 0, j = lines; i < j; ++i)
+	{
+		print(" ");
+	}
+}
+
 stock RandomNumberPlateString()
 {
 	new str[9];
 	for(new c; c < 8; c++)
 	{
-		if(c<4)str[c] = 'A' + random(26);
-		else if(c>4)str[c] = '0' + random(10);
+		if( c < 4) str[c] = 'A' + random(26);
+		else if( c > 4) str[c] = '0' + random(10);
 		str[4] = ' ';
 	}
 	return str;
-}
-
-CMD:setname(playerid, params[]) {
-	SetPlayerName(playerid, params);
-	return 1;
 }
 
 /*

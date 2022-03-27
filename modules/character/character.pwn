@@ -117,26 +117,22 @@ public CheckCharacterCreation(playerid, charname[]) {
 	return 1;
 }
 
+CMD:gendertest(playerid, params[]) { 
+	Dialog_Show(playerid, DIALOG_MALEFEMALE, DIALOG_STYLE_LIST, "Please select your appropriate sex", "Androgynous\nAgender\nBigender\nGender dysphoria\nGenderqueer\nIntersex\nNonbinary\nTransgender\nTrans\nTransitioning\nTranssexual\nTrans man\nTrans woman\nMale\nFemale", "Select", "");
+	return 1;
+}
+
+CMD:gmx(playerid, params[]) {
+	SetPlayerName(playerid, "kiearnjjr");
+	SendRconCommand("gmx");
+	return 1;
+}
+
 Dialog:DIALOG_MALEFEMALE(playerid, response, listitem, inputtext[]) {
 	if(response) {
-		switch(listitem) {
-			case 0: CharacterInfo[playerid][cGender] = 1;
-			case 1: CharacterInfo[playerid][cGender] = 2;
-			case 2: CharacterInfo[playerid][cGender] = 3;
-			case 3: CharacterInfo[playerid][cGender] = 4;
-			case 4: CharacterInfo[playerid][cGender] = 5;
-			case 5: CharacterInfo[playerid][cGender] = 6;
-			case 6: CharacterInfo[playerid][cGender] = 7;
-			case 7: CharacterInfo[playerid][cGender] = 8;
-			case 8: CharacterInfo[playerid][cGender] = 9;
-			case 9: CharacterInfo[playerid][cGender] = 10;
-			case 10: CharacterInfo[playerid][cGender] = 11;
-			case 11: CharacterInfo[playerid][cGender] = 12;
-			case 12: CharacterInfo[playerid][cGender] = 13;
-			case 13: CharacterInfo[playerid][cGender] = 14;
-			case 14: CharacterInfo[playerid][cGender] = 15;
-		}
+		CharacterInfo[playerid][cGender] = listitem;
 		printf("%d | %s | %d Gender", playerid, GetName(playerid), CharacterInfo[playerid][cGender]);
+		SendClientMessageEx(playerid, -1, "%s", ReturnGender(playerid));
 	}
 	return Dialog_Show(playerid, DIALOG_DOB, DIALOG_STYLE_INPUT, "Date of Birth", "Please input your date of birth in the (DD/MM/YYYY) format.", "Submit", "");
 }
