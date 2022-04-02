@@ -9,16 +9,19 @@
 
 
 // Main Server Includes
-#include "\modules\main\functions.pwn"
-#include "\modules\main\mysql.pwn"
-#include "\modules\main\enums.pwn"
-#include "\modules\main\bayside.pwn"
+#include "/modules/server/functions.pwn"
+#include "modules/server/mysql.pwn"
 // Character Draws
-#include "\modules\player\character\textdraws.pwn"
+#include "/modules/player/character/textdraws.pwn"
+#include "/modules/player/main/enums.pwn"
+
+
+
+#define MODEVERSION	    "0.0.2"
 
 new
-	MySQL: SQL_Handle
-;
+	MySQL: SQL_Handle;
+
 
 main() { }
 
@@ -26,7 +29,6 @@ public OnGameModeInit() {
 	
 	SetGameModeText(MODEVERSION);
 	CreateMainTextDraws();
-	CreateObjects();
 	
 	SQL_Handle = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB);
 	if(mysql_errno() != 0) {
@@ -45,22 +47,13 @@ public OnGameModeExit() {
 	return 1;
 }
 
-// Master Account Includes
-#include "\modules\player\master\commands.pwn"
-#include "\modules\player\master\login.pwn"
-#include "\modules\player\master\register.pwn"
-#include "\modules\player\master\save_load.pwn"
-#include "\modules\player\master\camera.pwn"
-// Character Account Includes
-#include "\modules\player\character\load.pwn"
-#include "\modules\player\character\character.pwn"
 
 public OnPlayerConnect(playerid) {
 	
-  	//CharacterInfo[playerid] = CharacterInfo[playerid];
-  	//E_MASTER_INFO[playerid] = E_MASTER_INFO[playerid];
+  	CharacterInfo[playerid] = CharacterInfo[playerid];
+  	MasterInfo[playerid] = MasterInfo[playerid];
+
   	SetPlayerColor(playerid, -1);
-  	RemoveBuildings(playerid);
 
 	if(IsRPName(GetName(playerid))) 
 	{
@@ -99,3 +92,13 @@ public OnPlayerText(playerid, text[])
 	}
 	return 1;
 }
+
+// Master Account Includes
+#include "/modules/player/master/commands.pwn"
+#include "/modules/player/master/login.pwn"
+#include "/modules/player/master/register.pwn"
+#include "/modules/player/master/save_load.pwn"
+#include "/modules/player/master/camera.pwn"
+// Character Account Includes
+#include "/modules/player/character/load.pwn"
+#include "/modules/player/character/character.pwn"

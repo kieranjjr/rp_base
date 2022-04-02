@@ -9,5 +9,3 @@
     #define MYSQL_USER	"zap897655-1"
     #define MYSQL_PASS	"r5jpGXZO3gSHzSrf"
 #endif
-
-#define MODEVERSION	    "0.0.2"
