@@ -22,9 +22,9 @@ CreateMainTextDraws() {
 	TextDrawColor(toptitlebar, -1);
 	TextDrawBackgroundColor(toptitlebar, 45);
 	TextDrawBoxColor(toptitlebar, 30);
-	TextDrawUseBox(toptitlebar, 1);
-	TextDrawSetProportional(toptitlebar, 1);
-	TextDrawSetSelectable(toptitlebar, 0);
+	TextDrawUseBox(toptitlebar, true);
+	TextDrawSetProportional(toptitlebar, true);
+	TextDrawSetSelectable(toptitlebar, false);
 	TextDrawSetPreviewModel(toptitlebar, 19625);
 	TextDrawSetPreviewRot(toptitlebar, -10.000000, 79.000000, -14.000000, 15.000000);
 	TextDrawSetPreviewVehCol(toptitlebar, 1, 1);
@@ -39,9 +39,9 @@ CreateMainTextDraws() {
 	TextDrawColor(bottomtitlebar, -1);
 	TextDrawBackgroundColor(bottomtitlebar, 45);
 	TextDrawBoxColor(bottomtitlebar, 30);
-	TextDrawUseBox(bottomtitlebar, 1);
-	TextDrawSetProportional(bottomtitlebar, 1);
-	TextDrawSetSelectable(bottomtitlebar, 0);
+	TextDrawUseBox(bottomtitlebar, true);
+	TextDrawSetProportional(bottomtitlebar, true);
+	TextDrawSetSelectable(bottomtitlebar, false);
 	TextDrawSetPreviewModel(bottomtitlebar, 19625);
 	TextDrawSetPreviewRot(bottomtitlebar, -10.000000, 79.000000, -14.000000, 15.000000);
 	TextDrawSetPreviewVehCol(bottomtitlebar, 1, 1);
@@ -56,9 +56,9 @@ CreateMainTextDraws() {
 	TextDrawColor(selecttitle, -1);
 	TextDrawBackgroundColor(selecttitle, 255);
 	TextDrawBoxColor(selecttitle, 50);
-	TextDrawUseBox(selecttitle, 0);
-	TextDrawSetProportional(selecttitle, 1);
-	TextDrawSetSelectable(selecttitle, 0);
+	TextDrawUseBox(selecttitle, false);
+	TextDrawSetProportional(selecttitle, true);
+	TextDrawSetSelectable(selecttitle, false);
 
 	print("SERVER - Character Background Draws created.");
 	return 1;
@@ -80,9 +80,9 @@ CreateCharacterDraws(playerid) {
 	PlayerTextDrawColor(playerid, stringtitle, -1);
 	PlayerTextDrawBackgroundColor(playerid, stringtitle, 255);
 	PlayerTextDrawBoxColor(playerid, stringtitle, 50);
-	PlayerTextDrawUseBox(playerid, stringtitle, 0);
-	PlayerTextDrawSetProportional(playerid, stringtitle, 1);
-	PlayerTextDrawSetSelectable(playerid, stringtitle, 0);
+	PlayerTextDrawUseBox(playerid, stringtitle, false);
+	PlayerTextDrawSetProportional(playerid, stringtitle, true);
+	PlayerTextDrawSetSelectable(playerid, stringtitle, false);
 
 	characterone = CreatePlayerTextDraw(playerid, 132.000000, 169.000000, "TextDraw");
 	PlayerTextDrawFont(playerid, characterone, 5);
@@ -94,9 +94,9 @@ CreateCharacterDraws(playerid) {
 	PlayerTextDrawColor(playerid, characterone, -1);
 	PlayerTextDrawBackgroundColor(playerid, characterone, 45);
 	PlayerTextDrawBoxColor(playerid, characterone, 30);
-	PlayerTextDrawUseBox(playerid, characterone, 1);
-	PlayerTextDrawSetProportional(playerid, characterone, 1);
-	PlayerTextDrawSetSelectable(playerid, characterone, 1);
+	PlayerTextDrawUseBox(playerid, characterone, true);
+	PlayerTextDrawSetProportional(playerid, characterone, true);
+	PlayerTextDrawSetSelectable(playerid, characterone, true);
 	PlayerTextDrawSetPreviewModel(playerid, characterone, 0);
 	PlayerTextDrawSetPreviewRot(playerid, characterone, -10.000000, 0.000000, -20.000000, 1.149999);
 	PlayerTextDrawSetPreviewVehCol(playerid, characterone, 1, 1);
@@ -111,9 +111,9 @@ CreateCharacterDraws(playerid) {
 	PlayerTextDrawColor(playerid, charactertwo, -1);
 	PlayerTextDrawBackgroundColor(playerid, charactertwo, 45);
 	PlayerTextDrawBoxColor(playerid, charactertwo, 30);
-	PlayerTextDrawUseBox(playerid, charactertwo, 1);
-	PlayerTextDrawSetProportional(playerid, charactertwo, 1);
-	PlayerTextDrawSetSelectable(playerid, charactertwo, 1);
+	PlayerTextDrawUseBox(playerid, charactertwo, true);
+	PlayerTextDrawSetProportional(playerid, charactertwo, true);
+	PlayerTextDrawSetSelectable(playerid, charactertwo, true);
 	PlayerTextDrawSetPreviewModel(playerid, charactertwo, 0);
 	PlayerTextDrawSetPreviewRot(playerid, charactertwo, -10.000000, 0.000000, -20.000000, 1.149999);
 	PlayerTextDrawSetPreviewVehCol(playerid, charactertwo, 1, 1);
@@ -128,9 +128,9 @@ CreateCharacterDraws(playerid) {
 	PlayerTextDrawColor(playerid, characterthree, -1);
 	PlayerTextDrawBackgroundColor(playerid, characterthree, 45);
 	PlayerTextDrawBoxColor(playerid, characterthree, 30);
-	PlayerTextDrawUseBox(playerid, characterthree, 1);
-	PlayerTextDrawSetProportional(playerid, characterthree, 1);
-	PlayerTextDrawSetSelectable(playerid, characterthree, 1);
+	PlayerTextDrawUseBox(playerid, characterthree, true);
+	PlayerTextDrawSetProportional(playerid, characterthree, true);
+	PlayerTextDrawSetSelectable(playerid, characterthree, true);
 	PlayerTextDrawSetPreviewModel(playerid, characterthree, 0);
 	PlayerTextDrawSetPreviewRot(playerid, characterthree, -10.000000, 0.000000, -20.000000, 1.149999);
 	PlayerTextDrawSetPreviewVehCol(playerid, characterthree, 1, 1);
@@ -145,8 +145,8 @@ CreateCharacterDraws(playerid) {
 	PlayerTextDrawColor(playerid, charnameone, -1);
 	PlayerTextDrawBackgroundColor(playerid, charnameone, 255);
 	PlayerTextDrawBoxColor(playerid, charnameone, 50);
-	PlayerTextDrawUseBox(playerid, charnameone, 0);
-	PlayerTextDrawSetProportional(playerid, charnameone, 1);
+	PlayerTextDrawUseBox(playerid, charnameone, false);
+	PlayerTextDrawSetProportional(playerid, charnameone, true);
 
 	charnametwo = CreatePlayerTextDraw(playerid, 280.000000, 337.000000, "Error");
 	PlayerTextDrawFont(playerid, charnametwo, 1);
@@ -158,8 +158,8 @@ CreateCharacterDraws(playerid) {
 	PlayerTextDrawColor(playerid, charnametwo, -1);
 	PlayerTextDrawBackgroundColor(playerid, charnametwo, 255);
 	PlayerTextDrawBoxColor(playerid, charnametwo, 50);
-	PlayerTextDrawUseBox(playerid, charnametwo, 0);
-	PlayerTextDrawSetProportional(playerid, charnametwo, 1);
+	PlayerTextDrawUseBox(playerid, charnametwo, false);
+	PlayerTextDrawSetProportional(playerid, charnametwo, true);
 
 	charnamethree = CreatePlayerTextDraw(playerid, 467.000000, 336.000000, "Error");
 	PlayerTextDrawFont(playerid, charnamethree, 1);
@@ -171,8 +171,8 @@ CreateCharacterDraws(playerid) {
 	PlayerTextDrawColor(playerid, charnamethree, -1);
 	PlayerTextDrawBackgroundColor(playerid, charnamethree, 255);
 	PlayerTextDrawBoxColor(playerid, charnamethree, 50);
-	PlayerTextDrawUseBox(playerid, charnamethree, 0);
-	PlayerTextDrawSetProportional(playerid, charnamethree, 1);
+	PlayerTextDrawUseBox(playerid, charnamethree, false);
+	PlayerTextDrawSetProportional(playerid, charnamethree, true);
 
 	CharDrawsCreated[playerid] = true;
 	printf("ID %d | %s - character draws created.", playerid, GetName(playerid));
@@ -203,9 +203,9 @@ ShowCharacterDraws(playerid) {
    	TextDrawShowForPlayer(playerid, bottomtitlebar);
   	TextDrawShowForPlayer(playerid, selecttitle);
 
-  	PlayerTextDrawSetSelectable(playerid, characterone, 1);
-   	PlayerTextDrawSetSelectable(playerid, charactertwo, 1);
-   	PlayerTextDrawSetSelectable(playerid, characterthree, 1);
+  	PlayerTextDrawSetSelectable(playerid, characterone, true);
+   	PlayerTextDrawSetSelectable(playerid, charactertwo, true);
+   	PlayerTextDrawSetSelectable(playerid, characterthree, true);
    	
   	PlayerTextDrawShow(playerid, characterone);
   	PlayerTextDrawShow(playerid, charactertwo);
@@ -226,9 +226,9 @@ HideCharacterDraws(playerid) {
 	TextDrawHideForPlayer(playerid, bottomtitlebar);
 	TextDrawHideForPlayer(playerid, selecttitle);
 
-  	PlayerTextDrawSetSelectable(playerid, characterone, 1);
-   	PlayerTextDrawSetSelectable(playerid, charactertwo, 1);
-   	PlayerTextDrawSetSelectable(playerid, characterthree, 1);
+  	PlayerTextDrawSetSelectable(playerid, characterone, true);
+   	PlayerTextDrawSetSelectable(playerid, charactertwo, true);
+   	PlayerTextDrawSetSelectable(playerid, characterthree, true);
    	
   	PlayerTextDrawHide(playerid, characterone);
   	PlayerTextDrawHide(playerid, charactertwo);
