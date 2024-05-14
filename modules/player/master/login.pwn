@@ -19,8 +19,10 @@ public LoadMasterAccount(playerid, bool:success) {
 
 		mysql_format(SQL_Handle, query, sizeof(query), "SELECT * FROM `master` WHERE `Username` = '%e'", GetName(playerid));
 		mysql_tquery(SQL_Handle, query, "OnMasterLoad", "d", playerid); // save_load
-	} else
-		Dialog_Show(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "Login to our server", "Wrong Password!\nPlease type your correct password below.", "Login", "Quit");
+	} else {
+		Dialog_Show(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "{FFFFFF}Login Panel", "Welcome back to Urban-Gaming Roleplay\nIncorrect Password\nPlease input your password below to login.", "Login", "Quit");
+		printf("%s inputted an incorrect password", GetName(playerid));
+	}
 	return 1;
 }
 
@@ -30,11 +32,11 @@ public CheckMasterAccount(playerid) {
 	new string[128];
 	ClearChat(playerid, 20);
 	if(cache_num_rows()) {
-		format(string, sizeof(string), "{FFFFFF}Welcome back to kieranjjr's Roleplay {00D084}%s{FFFFFF}. Please input your password below to login.", GetName(playerid));
-		Dialog_Show(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "{FFFFFF}Login to the server", string, "Login", "Quit");
+		format(string, sizeof(string), "{FFFFFF}Welcome back to Urban-Gaming Roleplay {00D084}%s{FFFFFF}. Please input your password below to login.", GetName(playerid));
+		Dialog_Show(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "{FFFFFF}Login Panel", string, "Login", "Quit");
 	} else {
-		format(string, sizeof(string), "{FFFFFF}Welcome to kieranjjr's Roleplay, {00D084}%s{FFFFFF}. Please type a strong password below to continue.", GetName(playerid));
-		Dialog_Show(playerid, DIALOG_REGISTER, DIALOG_STYLE_PASSWORD, "{FFFFFF}Register to the server", string, "Register", "Quit");
+		format(string, sizeof(string), "{FFFFFF}Welcome to Urban-Gaming Roleplay, {00D084}%s{FFFFFF}. Please type a strong password below to continue.", GetName(playerid));
+		Dialog_Show(playerid, DIALOG_REGISTER, DIALOG_STYLE_PASSWORD, "{FFFFFF}Register Panel", string, "Register", "Quit");
 	}
 	return 1;
 }

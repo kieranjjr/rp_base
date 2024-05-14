@@ -10,10 +10,12 @@ public mCamera(playerid) {
 forward cCamera(playerid);
 public cCamera(playerid) {
 	if(MasterInfo[playerid][mLogged] == true)	{
-		InterpolateCameraPos(playerid, -1945.453857, 2239.556884, 17.281091, -2080.764892, 2312.918701, 29.540859, 5000);
-		InterpolateCameraLookAt(playerid, -1949.660034, 2242.255371, 17.441219, -2085.493164, 2313.107666, 27.925817, 1500);
+		//InterpolateCameraPos(playerid, -1945.453857, 2239.556884, 17.281091, -2080.764892, 2312.918701, 29.540859, 5000);
+		//InterpolateCameraLookAt(playerid, -1949.660034, 2242.255371, 17.441219, -2085.493164, 2313.107666, 27.925817, 1500);
+		InterpolateCameraPos(playerid, 1553.041381, -1763.170166, 58.594627, 1759.001342, -1841.884399, 22.767324, 4000);
+		InterpolateCameraLookAt(playerid, 1550.640136, -1759.218750, 56.691913, 1756.144165, -1845.607666, 21.042966, 4000);
 	} else {
-		SendClientMessage(playerid, -1, "SERVER: Somehow you're here - But not logged in.");
+		SendClientMessage(playerid, -1, ""CSS_ERROR"SERVER: "CSS_WHITE"Something has gone wrong. Please contact an administrator.");
 		SetTimerEx("KickTimer", 1000, false, "d", playerid);
 	}
 	return 1;
